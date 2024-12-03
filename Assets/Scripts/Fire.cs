@@ -5,7 +5,7 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     RaycastHit hit;
-    public GameObject bullet;
+    public GameObject bulletObject;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +25,12 @@ public class Fire : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0)) 
         {
-            Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity, LayerMask.GetMask());
+            Physics.Raycast(transform.position, transform.forward, out hit, Mathf.Infinity);
             if(hit.collider != null)
             {
                 Debug.Log("Hit! : " + hit.collider.name);
-                // Instantiate()
+                GameObject bullet = Instantiate(bulletObject);
+                bullet.transform.position = hit.point; // RayCastHit.point 레이캐스팅이 감지된 위치
             }
         }
     }
