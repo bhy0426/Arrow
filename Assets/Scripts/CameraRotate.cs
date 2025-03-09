@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraRotate : MonoBehaviour
 {
     public Transform targetTransform; // 플레이어
     private float distanceY = 0.5f; // 플레이어 머리 상대 좌표
